@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="http://localhost:8090/springboot319">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span th:text="${list}">Success.html</span><br/><br/>
+    <span th:text="${list[0]}">Success.html</span><br/><br/>
+    <span th:text="${list[0].lastName}">Success.html</span><br/><br/>
+    <span th:text="${list.isEmpty()}">Success.html</span><br/><br/>
+    <span th:text="${list.get(0)}">Success.html</span><br/><br/>
+    <span th:text="${list.size()}">Success.html</span><br/><br/>
+
+    <span th:text="${1+1}">Success.html</span><br/><br/>
+    <span th:text="${2*2}">Success.html</span><br/><br/>
+    <span th:text="${list.size()>0?list[0]:null}">Success.html</span><br/><br/>
+
+    <span th:text="${lastName}">1111</span>
+    <span th:text="*{lastName}">1111</span>
+
+    <span th:object="${list[0]}">
+        <span th:text="${lastName}">111</span>
+    </span>
+
+    <span th:object="${list[0]}">
+        <span th:text="*{lastName}">111</span>
+    </span>
+
+    <a href="1.html" th:href="2.html">index.html</a><br/><br/>
+
+    <a href="1.html" th:if="${list.size()>0}">登录</a>
+    <a href="1.html" th:if="${list.size()==0}">注册</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>lastName</th>
+                <th>firstName</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="l:${list}">
+                <td><span th:text="${l.lastName}"></span></td>
+                <td><span th:text="${l.firstName}"></span></td>
+            </tr>
+        </tbody>
+    </table><br/>
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>index</th>
+            <th>count</th>
+            <th>lastName</th>
+            <th>firstName</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="l,iterStat:${list}">
+            <td><span th:text="${iterStat.index}"></span></td>
+            <td><span th:text="${iterStat.count}"></span></td>
+            <td><span th:text="${l.lastName}"></span></td>
+            <td><span th:text="${l.firstName}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:switch="${lastName}">
+        <p th:case="admin">admin</p>
+        <p th:case="aaa">aaa</p>
+        <p th:case="段硕">段硕</p>
+    </div>
+</body>
+</html>

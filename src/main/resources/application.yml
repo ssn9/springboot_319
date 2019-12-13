@@ -1,0 +1,52 @@
+server:
+  port: 8091     #tomcat端口号
+  servlet:
+    path: /      #前端控制器拦截的请求路径
+    context-path: /springboot319   #上下文路径，必须以/开头，访问时必须先写上下文路径
+
+spring:
+  datasource: #数据库的配置
+    url: jdbc:mysql://127.0.0.1:3306/yiibaidb?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jackson:
+    date-format: yyyy-MM-dd
+  thymeleaf:
+    encoding: UTF-8
+    suffix: .html
+    cache: false
+    prefix: classpath:/templates/html/  # 配置前缀时必须加templates，浏览器访问页面时不加templates路径
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/
+  servlet:
+    multipart:   # 文件上传
+      max-file-size: 10MB
+
+
+mybatis:
+  mapper-locations: classpath*:/com/aaa/mapper/*.xml
+  type-aliases-package: com.aaa.entity
+
+
+pagehelper:
+  helper-dialect: mysql   # 数据库方言
+  offset-as-page-num: true
+  support-methods-arguments: true  # 方法参数中包含pageNum,pageSize参数时，自动进行分页
+  params: count=coutSql
+  reasonable: true  # 传递的pageNum>totalpage时，pageNum=totalpage
+mapper:
+  mappers: tk.mybatis.mapper.common.Mapper
+  identity: mysql
+  not-empty: true
+  style: normal  # lastName
+
+
+
+
+
+
+
+
+
+

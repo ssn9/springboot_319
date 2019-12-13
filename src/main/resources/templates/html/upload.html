@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="http://localhost:8090/springboot319/">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="upload/upload" enctype="multipart/form-data" method="post">
+        文件：<input type="file" name="photo"/>
+        <input type="submit" value="提交"/>
+    </form><br/><br/>
+
+    <form action="upload/upload2" enctype="multipart/form-data" method="post">
+        文件：<input type="file" name="photo"/>
+        文件：<input type="file" name="photo2"/>
+        <input type="submit" value="提交"/>
+    </form><br/><br/>
+
+    <form action="upload/upload3" enctype="multipart/form-data" method="post">
+        文件：<input type="file" name="photo"/>
+        文件：<input type="file" name="photo"/>
+        <input type="submit" value="提交"/>
+    </form><br/><br/>
+</body>
+</html>
